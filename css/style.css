@@ -599,7 +599,7 @@ nav a:hover, nav a:focus {
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   cursor: pointer; /* Curseur de souris pour indiquer l'interactivité */
   width: 450px; /* Les cartes prennent toute la largeur disponible */
-  height: 400px; /* Hauteur fixe pour une apparence uniforme */
+  height: 450px; /* Hauteur fixe pour une apparence uniforme */
   justify-self: center; /* Centre les éléments dans leur conteneur */
 }
 
