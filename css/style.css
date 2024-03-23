@@ -162,19 +162,25 @@ nav a:hover, nav a:focus {
 }
 
 .cv-button {
-  display: inline-block;
+  font-family: 'Arial', sans-serif; /* Alignement avec la police globale du site */
   padding: 10px 20px;
-  background-color: #0000ff;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  background-color: #598392; /* Couleur principale pour le bouton, basée sur les autres éléments de design */
+  color: #EFF6E0; /* Couleur du texte pour contraste */
+  border: none; /* Pas de bordure pour un look moderne */
+  border-radius: 5px; /* Légèrement arrondi pour s'aligner sur le design global */
+  font-weight: bold; /* Texte en gras pour l'accentuation */
+  text-decoration: none; /* Aucun soulignement pour un aspect net */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition douce pour l'interaction */
+  cursor: pointer; /* Indique que l'élément est cliquable */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Légère ombre pour la profondeur */
 }
 
-.cv-button:hover {
-  background-color: #3333ff;
+.cv-button:hover, .cv-button:focus {
+  background-color: #AEC3B0; /* Changement de couleur au survol pour indiquer l'interaction */
+  transform: translateY(-2px); /* Effet de "soulèvement" pour le retour utilisateur */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée pour l'effet de soulèvement */
 }
+
 
 .menu-toggle {
   display: flex;

@@ -38,3 +38,7 @@ document.querySelector('.menu-toggle').addEventListener('click', function() {
         menu.classList.add('menu-hidden');
     }
 });
+
+document.getElementById('cvButton').addEventListener('click', function() {
+    window.open('../Fernandes_Patrick.pdf');
+});
