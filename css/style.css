@@ -14,21 +14,30 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px; /* Adjust padding as necessary */
-  background-color:#124559;
-  transition: background-color 0.3s ease;
+  padding: 20px;
+  background-color: #124559;
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 80px;
+
+  /* Ajout d'un effet de profondeur */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  /* Léger dégradé pour plus de profondeur */
+  background: #006A67;
+
+  /* Légère bordure brillante en bas */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
-  margin-left: 40px; /* Adds space between the logo and the left edge of the header */
-  width: 50px;
-  height: 50px;
+  margin-left: 40px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #124559;
+  background-color: linear-gradient(135deg, #124559 0%, #598392 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,6 +65,7 @@ nav a {
   color: #AEC3B0;
   font-weight: bold;
   transition: color 0.3s ease-in-out;
+  font-size: 1.2em;
 }
 
 
@@ -74,7 +84,7 @@ nav a:hover, nav a:focus {
 }
 
 .social-icon {
-  width: 24px;
+  width: 30px;
   height: auto;
   transition: transform 0.3s ease;
 }
@@ -86,21 +96,34 @@ nav a:hover, nav a:focus {
 .intro {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensures the text and image are on opposite ends */
-  background-color: #124559;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #124559 0%, #598392 100%);
   padding: 40px;
   width: 100%;
-  height: 1000px;
+  height: 100vh; /* Changé de 1000px à 100vh pour une meilleure adaptation */
   margin: auto;
   box-sizing: border-box;
+  position: relative;
+}
+
+.intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .intro-text {
-  /* The text styles remain unchanged */
-  flex: 1; /* Allows the text container to grow and fill the space */
+  flex: 1;
   padding: 40px;
   box-sizing: border-box;
-
+  position: relative; /* Pour l'animation */
+  animation: slideIn 1s ease-out;
+  font-size: 1.2em;
 }
 
 .intro-text h1, .intro-text h2, .intro-text p {
@@ -135,13 +158,31 @@ nav a:hover, nav a:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px; /* The width of the bubble */
-  height: 350px; /* The height of the bubble */
+  width: 450px; /* The width of the bubble */
+  height: 450px; /* The height of the bubble */
   border-radius: 50%; /* Makes the container round */
   overflow: hidden;
   margin-right: 200px; /* Adds space between the text and the image */
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-  background-color: #124559;
+  background-color: linear-gradient(135deg, #124559 0%, #598392 100%);
+}
+
+@keyframes appearIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.image-container:hover {
+  transform: scale(1.02);
+  box-shadow:
+          0 0 40px rgba(0, 0, 0, 0.4),
+          inset 0 0 25px rgba(255, 255, 255, 0.2);
 }
 
 .intro-img {
@@ -152,7 +193,7 @@ nav a:hover, nav a:focus {
 
 
 .intro-img:hover {
-  transform: scale(1.1); /*on lui met un zoom*/
+  transform: scale(1.1);
 }
 
 
@@ -286,8 +327,8 @@ nav a:hover, nav a:focus {
 /* CSS POUR LA 3ème SECTION */
 .presentation {
   text-align: center;
-  background-color: #aec3b0; /* off-white */
-  color: #01161E; /* charcoal */
+  background: linear-gradient(135deg, #124559 0%, #598392 100%);
+
 }
 
 
@@ -323,32 +364,57 @@ nav a:hover, nav a:focus {
 }
 
 /* Ajoutez cette classe à votre élément <p> pour appliquer le style */
+/* Texte d'introduction */
 .competence-text {
-  border-left: 5px solid #007bff;
-  padding: 15px;
-  margin: 20px 0;
-  font-style: italic;
+  text-align: center;
+  color: #fefae0;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  font-size: 1.1em;
+  line-height: 1.6;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+.competence-content {
+  margin-bottom: 50px;
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px; /* Ajustez cet espacement selon vos besoins */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
   padding: 20px;
-  margin: auto;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
+
+/* Style des cartes */
 .card {
-  flex: 0 1 calc(33.333% - 60px); /* Ajustement pour 3 cartes, avec un peu plus d'espace retiré pour le 'gap' */
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
 
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #124559, transparent);
+  transition: left 0.5s ease;
 }
 
 .card:last-child {
@@ -357,28 +423,41 @@ nav a:hover, nav a:focus {
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  transform: translateY(-10px);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover::before {
+  left: 100%;
 }
 
 .card img {
-  width: 80px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .card h3 {
-  font-size: 1.2rem;
-  color: #444;
-  margin-bottom: 10px;
+  color: #124559;
+  font-size: 1.4em;
+  margin: 15px 0;
+  position: relative;
 }
 
+/* Texte des cartes */
 .card p {
-  text-align: center;
   color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin: 0;
 }
+
+
 
 @media (max-width: 768px) and (max-width: 979px) {
   .presentation {
@@ -422,25 +501,48 @@ nav a:hover, nav a:focus {
 
 
 .journey-section {
-  padding: 50px 0;
-  text-align: center;
-  height: 1200px;
-  background-color: #aec3b0;
-
+  background: linear-gradient(135deg, #124559 0%, #598392 100%);
+  padding: 80px 40px;
+  position: relative;
+  height: 140vh;
 }
 
+/* Titre de la section */
 .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #333;
-  text-transform: uppercase;
+  text-align: center;
+  color: #fefae0;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fefae0, transparent);
+}
+
+/* Style spécifique pour l'image du logo Master 2 */
+.timeline-item[data-year="2024"] .timeline-image {
+  width: 130px; /* Réduire la largeur */
+  height: 130px; /* Réduire la hauteur */
+  object-fit: contain; /* Pour garder les proportions de l'image */
+  display: block;
+  margin: 15px auto; /* Centre l'image horizontalement */
+  background: #fff; /* Couleur de fond */
 }
 
 .timeline {
   position: relative;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px;
-  max-width: 1000px;
+  padding: 40px 0;
 }
 
 .timeline::before {
@@ -450,29 +552,65 @@ nav a:hover, nav a:focus {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #455A64;
+  background: rgba(255, 255, 255, 0.3);
   transform: translateX(-50%);
 }
 
+/* Année */
+.timeline-year {
+  position: absolute;
+  top: -30px;
+  background: #006A67;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
 .timeline-item {
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  margin-bottom: 20px;
-  padding: 30px;
   position: relative;
   width: calc(50% - 40px);
-  z-index: 1;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 50px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Point sur la timeline */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #006A67;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  top: 50%;
+}
+
 
 .timeline-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* Position des points selon pair/impair */
+.timeline-item:nth-child(odd)::before {
+  right: -50px;
+  transform: translate(0, -50%);
+}
+
+.timeline-item:nth-child(even)::before {
+  left: -50px;
+  transform: translate(0, -50%);
+}
+
 .timeline-image {
-  width: 100px; /* Taille ajustée pour ne pas empiéter sur le texte */
-  height: 100px; /* Taille ajustée pour ne pas empiéter sur le texte */
+  width: 130px; /* Taille ajustée pour ne pas empiéter sur le texte */
+  height: 130px; /* Taille ajustée pour ne pas empiéter sur le texte */
   border-radius: 50%;
   border: 4px solid #ffffff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -584,34 +722,38 @@ nav a:hover, nav a:focus {
 
 /* Portfolio Section Improvements */
 .portfolio-section {
-  padding: 60px 0;
-  text-align: center; /* Centre le contenu de la section */
-  height: 1200px;
-  background-color: #aec3b0; /* Couleur de fond */
-
+  background: linear-gradient(135deg, #124559 0%, #598392 100%);
+  padding: 80px 40px;
+  position: relative;
 }
 
 .portfolio-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 éléments par ligne */
-  gap: 30px; /* Espace entre les éléments */
-  padding: 0 20px; /* Padding horizontal pour la respiration */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
 .portfolio-item {
-  border-radius: 10px; /* Coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour la profondeur */
-  overflow: hidden; /* Cache les débordements, utile pour les images */
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-  cursor: pointer; /* Curseur de souris pour indiquer l'interactivité */
-  width: 450px; /* Les cartes prennent toute la largeur disponible */
-  height: 450px; /* Hauteur fixe pour une apparence uniforme */
-  justify-self: center; /* Centre les éléments dans leur conteneur */
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .portfolio-item:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-  transform: translateY(-5px); /* Légère élévation au survol */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.05);
 }
 
 .portfolio-item img {
@@ -641,6 +783,49 @@ nav a:hover, nav a:focus {
 .portfolio-title-link:hover, .portfolio-title-link:focus {
   text-decoration: underline; /* Optionnel : ajoute un soulignement au survol pour indiquer qu'il s'agit d'un lien */
 }
+
+.portfolio-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid rgba(18, 69, 89, 0.1);
+  transition: transform 0.5s ease;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Décalage des animations pour chaque projet */
+.portfolio-item:nth-child(1) { animation-delay: 0.2s; }
+.portfolio-item:nth-child(2) { animation-delay: 0.3s; }
+.portfolio-item:nth-child(3) { animation-delay: 0.4s; }
+.portfolio-item:nth-child(4) { animation-delay: 0.5s; }
+.portfolio-item:nth-child(5) { animation-delay: 0.6s; }
+.portfolio-item:nth-child(6) { animation-delay: 0.7s; }
+
+/* Effet de survol pour les liens */
+.portfolio-title-link:hover h3 {
+  color: #598392;
+}
+
+/* Style pour l'image zoomée */
+.zoomed-image {
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .zoomed-image {
+  transform: scale(1.1);
+}
+
 
 
 
@@ -680,10 +865,45 @@ nav a:hover, nav a:focus {
 
 
 .contact-section {
-  padding: 60px 20px;
-  background-color: #124559; /* Fond sombre pour contraste */
-  color: #EFF6E0; /* Texte en off-white pour lisibilité */
+  background: #006A67;
+  padding: 80px 40px;
   text-align: center;
+  position: relative;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Effet de vague en bas */
+.contact-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(to top, rgba(255,255,255,0.1), transparent);
+}
+
+.section-title {
+  color: #fefae0;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fefae0, transparent);
 }
 
 .contact-section .section-title {
@@ -699,8 +919,39 @@ nav a:hover, nav a:focus {
 .contact-info {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.contact-info a {
+  position: relative;
+  transition: transform 0.3s ease;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-info a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+  transform: translateY(-5px);
+}
+
+.contact-info a:hover::before {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.2);
 }
 
 .contact-link {
@@ -719,7 +970,14 @@ nav a:hover, nav a:focus {
 
 
 .social-icons {
-  width: 50px; /* Adjust this value to enlarge the icons */
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+  filter: brightness(0) invert(1);
+}
+
+.contact-info a:hover .social-icons {
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) and (max-width: 979px){
