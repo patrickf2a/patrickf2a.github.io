@@ -911,7 +911,7 @@ nav a:hover, nav a:focus {
   .journey-section {
     padding: 60px 15px;
     background: linear-gradient(135deg, #124559 0%, #598392 100%);
-    min-height: 180vh;
+    min-height: 200vh;
     overflow-y: auto;
     position: relative;
     width: 100%;
