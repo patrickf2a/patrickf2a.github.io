@@ -9,7 +9,7 @@ html {
   scroll-behavior: smooth;
 }
 
-
+/* Header */
 header {
   display: flex;
   align-items: center;
@@ -20,14 +20,8 @@ header {
   top: 0;
   z-index: 1000;
   height: 80px;
-
-  /* Ajout d'un effet de profondeur */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
-  /* Léger dégradé pour plus de profondeur */
   background: #006A67;
-
-  /* Légère bordure brillante en bas */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -49,7 +43,7 @@ header {
   object-fit: cover;
 }
 
-
+/* Navigation */
 nav ul {
   list-style: none;
   display: flex;
@@ -68,19 +62,18 @@ nav a {
   font-size: 1.2em;
 }
 
-
 nav a:hover, nav a:focus {
-  color: #EFF6E0; /* Couleur bleu foncé au survol */
+  color: #EFF6E0;
 }
 
 .social-links {
-  margin-right: 20px; /* Adds space between the social icons and the right edge of the header */
+  margin-right: 20px;
   display: flex;
   align-items: center;
 }
 
 .social-links a {
-  margin: 0 10px; /* Adjust the space between each social icon */
+  margin: 0 10px;
 }
 
 .social-icon {
@@ -93,6 +86,7 @@ nav a:hover, nav a:focus {
   transform: scale(1.1);
 }
 
+/* Section Intro */
 .intro {
   display: flex;
   align-items: center;
@@ -100,7 +94,7 @@ nav a:hover, nav a:focus {
   background: linear-gradient(135deg, #124559 0%, #598392 100%);
   padding: 40px;
   width: 100%;
-  height: 100vh; /* Changé de 1000px à 100vh pour une meilleure adaptation */
+  height: 100vh;
   margin: auto;
   box-sizing: border-box;
   position: relative;
@@ -121,13 +115,14 @@ nav a:hover, nav a:focus {
   flex: 1;
   padding: 40px;
   box-sizing: border-box;
-  position: relative; /* Pour l'animation */
+  position: relative;
   animation: slideIn 1s ease-out;
   font-size: 1.2em;
 }
 
+/* Styles du texte d'intro */
 .intro-text h1, .intro-text h2, .intro-text p {
-  color: #fefae0; /* off-white */
+  color: #fefae0;
 }
 
 .intro-text h1 {
@@ -135,14 +130,12 @@ nav a:hover, nav a:focus {
   margin-bottom: 0;
   font-size: 3em;
   max-width: 200px;
-  /*text-shadow: 0 0 10px #fff ;*/
 }
 
 .intro-text h2 {
   margin-top: auto;
   margin-left: 70px;
   font-size: 2.5em;
-  /*text-shadow: 0 0 10px #fff ;*/
 }
 
 .intro-text p {
@@ -150,23 +143,23 @@ nav a:hover, nav a:focus {
   margin-left: 70px;
   font-size: 1.5em;
   max-width: 400px;
-  text-shadow: 0 0 10px #fff ;
+  text-shadow: 0 0 10px #fff;
 }
-
 
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 450px; /* The width of the bubble */
-  height: 450px; /* The height of the bubble */
-  border-radius: 50%; /* Makes the container round */
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
   overflow: hidden;
-  margin-right: 200px; /* Adds space between the text and the image */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  margin-right: 200px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   background-color: linear-gradient(135deg, #124559 0%, #598392 100%);
 }
 
+/* Animations et effets */
 @keyframes appearIn {
   from {
     opacity: 0;
@@ -178,193 +171,64 @@ nav a:hover, nav a:focus {
   }
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .image-container:hover {
   transform: scale(1.02);
-  box-shadow:
-          0 0 40px rgba(0, 0, 0, 0.4),
-          inset 0 0 25px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4),
+  inset 0 0 25px rgba(255, 255, 255, 0.2);
 }
 
 .intro-img {
-  max-width: 100%; /* Ensures the image does not exceed the container's width */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
   display: block;
 }
-
 
 .intro-img:hover {
   transform: scale(1.1);
 }
 
-
-.intro p {
-  color: #333;
-  margin-bottom: 1em;
-}
-
-.cv-button {
-  font-family: 'Arial', sans-serif; /* Alignement avec la police globale du site */
-  padding: 10px 20px;
-  background-color: #598392; /* Couleur principale pour le bouton, basée sur les autres éléments de design */
-  color: #EFF6E0; /* Couleur du texte pour contraste */
-  border: none; /* Pas de bordure pour un look moderne */
-  border-radius: 5px; /* Légèrement arrondi pour s'aligner sur le design global */
-  font-weight: bold; /* Texte en gras pour l'accentuation */
-  text-decoration: none; /* Aucun soulignement pour un aspect net */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition douce pour l'interaction */
-  cursor: pointer; /* Indique que l'élément est cliquable */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Légère ombre pour la profondeur */
-}
-
-.cv-button:hover, .cv-button:focus {
-  background-color: #AEC3B0; /* Changement de couleur au survol pour indiquer l'interaction */
-  transform: translateY(-2px); /* Effet de "soulèvement" pour le retour utilisateur */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée pour l'effet de soulèvement */
-}
-
-
-.menu-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-
-}
-
-
-
-/* Styles pour les écrans jusqu'à 768px de large */
-@media (max-width: 768px) and (max-width: 979px) {
-  header {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .logo {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  nav ul:active {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .intro {
-    flex-direction: column;
-    padding: 20px;
-    height: auto;
-  }
-
-  .image-container {
-    margin: 20px 0; /* Ajuste l'espace autour de l'image pour les écrans plus petits */
-    width: 300px; /* Ajuste la taille de l'image */
-    height: 300px;
-  }
-
-  .intro-text, .image-container {
-    margin-right: 0;
-    margin-left: 0;
-    text-align: center; /* Centre le texte pour les appareils mobiles */
-  }
-
-  .intro-text h1, .intro-text h2, .intro-text p {
-    margin-left: 0;
-  }
-  .menu-toggle {
-    display: block; /* Affiche le bouton sur les mobiles */
-  }
-
-  nav ul.menu-hidden {
-    display: none;
-  }
-
-  nav ul.menu-visible {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .menu-line {
-    width: 35px;
-    height: 5px;
-    background-color: black;
-    margin: 6px 0;
-  }
-  .menu-open {
-    height: auto; /* ou spécifiez une hauteur spécifique */
-  }
-
-  .menu-visible {
-    display: block;
-    transition: height 2s ease-in-out; /* animation de déroulement */
-  }
-
-  .social-links {
-    margin-right: 0; /* Ajuste l'espace autour des icônes pour les écrans plus petits */
-    margin-top: 10px; /* Ajoute un espace en haut des icônes pour les écrans plus petits */
-  }
-
-
-
-}
-
-
-/* CSS POUR LA 3ème SECTION */
+/* Section Compétences */
 .presentation {
-  text-align: center;
   background: linear-gradient(135deg, #124559 0%, #598392 100%);
-
-}
-
-
-.presentation {
-  padding: 40px 20px; /* Plus d'espacement autour du texte */
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #2a2a2a;
-  font-size: 24px;
-  font-weight: bold;
+  padding: 80px 40px;
+  position: relative;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #598392; /* Titres en vert foncé */
-  text-transform: uppercase;
+  text-align: center;
+  color: #fefae0;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fefae0, transparent);
 }
 
 .competence-content {
-  font-size: 16px;
-  color: #4a4a4a;
-  text-align: justify;
-  margin: 0 auto;
-  max-width: 800px;
+  margin-bottom: 50px;
 }
 
-.card, .timeline-item, .portfolio-item {
-  background: #eff6e0; /* light green */
-}
-
-/* Ajoutez cette classe à votre élément <p> pour appliquer le style */
-/* Texte d'introduction */
 .competence-text {
   text-align: center;
   color: #fefae0;
@@ -377,9 +241,6 @@ nav a:hover, nav a:focus {
   border-radius: 10px;
   backdrop-filter: blur(5px);
 }
-.competence-content {
-  margin-bottom: 50px;
-}
 
 .container {
   display: grid;
@@ -389,7 +250,6 @@ nav a:hover, nav a:focus {
   max-width: 1400px;
   margin: 0 auto;
 }
-
 
 /* Style des cartes */
 .card {
@@ -415,11 +275,6 @@ nav a:hover, nav a:focus {
   height: 3px;
   background: linear-gradient(90deg, transparent, #124559, transparent);
   transition: left 0.5s ease;
-}
-
-.card:last-child {
-  margin-bottom: 0; /* Retire l'espacement en bas de la dernière carte */
-
 }
 
 .card:hover {
@@ -449,7 +304,6 @@ nav a:hover, nav a:focus {
   position: relative;
 }
 
-/* Texte des cartes */
 .card p {
   color: #555;
   font-size: 0.95em;
@@ -457,44 +311,6 @@ nav a:hover, nav a:focus {
   margin: 0;
 }
 
-
-
-@media (max-width: 768px) and (max-width: 979px) {
-  .presentation {
-    padding: 20px 10px;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .competence-content {
-    font-size: 14px;
-    max-width: 100%;
-  }
-
-  .container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .card {
-    flex: 0 0 100%; /* Make cards take full width on small screens */
-    padding: 10px;
-  }
-
-  .card img {
-    width: 60px;
-  }
-
-  .card h3 {
-    font-size: 1rem;
-  }
-
-  .card p {
-    font-size: 0.875rem;
-  }
-}
 
 
 /* CSS POUR LA 4ème SECTION */
@@ -655,49 +471,6 @@ nav a:hover, nav a:focus {
   line-height: 1.6;
 }
 
-@media (max-width: 768px) and (max-width: 979px) {
-  .journey-section {
-    padding: 20px 0;
-    height: auto;
-  }
-
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .timeline {
-    max-width: 100%;
-    padding: 0 5px;
-  }
-
-  .timeline-item {
-    width: auto; /* Les éléments de la timeline prennent toute la largeur sur les petits écrans */
-    padding: 20px;
-  }
-
-  .timeline-image {
-    width: 35px; /* Réduire la taille de l'image pour les petits écrans */
-    height: 35px;
-    object-position: bottom; /* Ajuster la position de l'image pour qu'elle soit centrée verticalement */
-    left:100%;
-  }
-
-  .timeline-item:nth-child(odd) .timeline-image,
-  .timeline-item:nth-child(even) .timeline-image {
-    transform: translateX(-50%) translateY(-50%); /* Ajuster la translation en X pour que l'image ne soit pas déplacée horizontalement */
-  }
-
-  .timeline-item h3 {
-    font-size: 1.5rem;
-  }
-
-  .timeline-item p {
-    font-size: 0.875rem;
-  }
-}
-
-
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -829,39 +602,6 @@ nav a:hover, nav a:focus {
 
 
 
-@media (max-width: 768px) and (max-width: 979px){
-  .portfolio-section {
-    padding: 20px 0;
-    height: auto;
-  }
-
-  .portfolio-container {
-    grid-template-columns: 1fr; /* Colonne unique pour les mobiles */
-    gap: 20px; /* Espace réduit entre les éléments */
-    padding: 0 10px; /* Padding horizontal réduit pour la respiration */
-  }
-
-  .portfolio-item {
-    width: 80%; /* Les cartes prennent toute la largeur disponible sur les petits écrans */
-    height: auto; /* Hauteur ajustée en fonction du contenu pour une apparence uniforme */
-  }
-
-  .portfolio-item img {
-    height: 400px; /* Hauteur ajustée pour une apparence uniforme */
-  }
-
-  .portfolio-item h3 {
-    font-size: 1.2em; /* Taille du titre réduite */
-  }
-
-  .portfolio-item p {
-    font-size: 0.9em; /* Taille du texte réduite */
-  }
-  .competence-text {
-    text-align: center;
-  }
-
-}
 
 
 .contact-section {
@@ -976,36 +716,451 @@ nav a:hover, nav a:focus {
   filter: brightness(0) invert(1);
 }
 
+/* Mobile Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  padding: 0;
+}
+
+.menu-line {
+  width: 100%;
+  height: 3px;
+  background-color: #fefae0; /* Couleur claire pour meilleur contraste */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
 .contact-info a:hover .social-icons {
   transform: scale(1.1);
 }
 
-@media (max-width: 768px) and (max-width: 979px){
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  body,
+  main,
+  section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* Styles communs pour toutes les sections */
+  section {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px 20px;
+  }
+
+  /* Header Mobile */
+  header {
+    position: relative;
+    padding-right: 60px; /* Espace pour le menu hamburger */
+  }
+
+  .intro,
+  .presentation,
+  .journey-section,
+  .portfolio-section,
   .contact-section {
-    padding: 20px 10px;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
   }
 
-  .contact-section .section-title {
-    font-size: 1.5em; /* Réduire la taille du titre pour les petits écrans */
+
+  .logo {
+    width: 60px;
+    height: 60px;
+    margin: 0;
   }
 
-  .contact-section .section-intro {
-    font-size: 1em; /* Réduire la taille du texte d'introduction pour les petits écrans */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-line {
+    width: 100%;
+    height: 3px;
+    background-color: #EFF6E0;
+  }
+
+  .social-links {
+    margin-right: 50px;
+  }
+
+  nav ul {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #006A67;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul.menu-visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    z-index: 1000;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    width: auto;
+    padding: 15px 30px;
+    font-size: 1.3em;
+    color: #fefae0;
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+
+  .social-links {
+    display: none;
+  }
+
+  /* Intro Mobile */
+  .intro {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .intro-text {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .intro-text h1,
+  .intro-text h2,
+  .intro-text p {
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .image-container {
+    width: 280px;
+    height: 280px;
+    margin: 20px auto;
+  }
+
+  /* Compétences Mobile */
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    margin: 10px;
+  }
+
+
+  /* Correction de la section title */
+  .section-title {
+    font-size: 2em;
+    text-align: center;
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+
+  /* Ajustement des conteneurs */
+  .container,
+  .portfolio-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Timeline Mobile */
+  /* Timeline Mobile */
+  .journey-section {
+    padding: 60px 15px;
+    background: linear-gradient(135deg, #124559 0%, #598392 100%);
+    min-height: 180vh;
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+  }
+
+  .timeline {
+    position: relative;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .timeline-item {
+    position: relative;
+    width: calc(100% - 60px);
+    margin: 40px 0 25px 45px;
+    background: linear-gradient(to bottom right, #fff, #f8f8f8);
+    padding: 20px 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Point sur la timeline */
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #006A67;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    left: -33px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Date */
+  .timeline-year {
+    position: absolute;
+    left: 0;
+    top: -30px;
+    background: #006A67;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  /* Style de base pour les images */
+  .timeline-image {
+    position: absolute;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+    z-index: 2;
+  }
+
+  /* Images pour chaque carte spécifique */
+  .timeline-item:nth-child(1) .timeline-image {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    left: 15px;
+    padding: 12px;
+  }
+
+  .timeline-item:nth-child(2) .timeline-image {
+    width: 50px;
+    height: 50px;
+    top: -20px;
+    right: 70px;
+    left: auto;
+    padding: 8px;
+  }
+
+  .timeline-item:nth-child(3) .timeline-image {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    left: 15px;
+    padding: 8px;
+  }
+
+  .timeline-item:nth-child(4) .timeline-image {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    right: 70px;
+    left: auto;
+    padding: 8px;
+  }
+
+  .timeline-item:nth-child(5) .timeline-image {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    left: 15px;
+    padding: 8px;
+  }
+
+
+  /* Styles pour le texte */
+  .timeline-item h3 {
+    color: #124559;
+    font-size: 1.1em;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+
+  .timeline-item p {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 10px 0 0 0;
+  }
+
+  /* Styles spécifiques pour les différentes cartes */
+  .timeline-item:nth-child(1) {
+    border-left: 4px solid #006A67;
+  }
+
+  .timeline-item:nth-child(2) {
+    border-left: 4px solid #598392;
+  }
+
+  .timeline-item:nth-child(3) {
+    border-left: 4px solid #124559;
+  }
+
+  .timeline-item:nth-child(4) {
+    border-left: 4px solid #598392;
+  }
+
+  /* Animation */
+  .timeline-item {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideIn 0.5s ease forwards;
+  }
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Animation delay pour chaque carte */
+  .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+
+  /* Portfolio Mobile */
+  .portfolio-section {
+    background: linear-gradient(135deg, #124559 0%, #598392 100%);
+    padding: 80px 20px;
+    width: 100%;
+  }
+
+  .portfolio-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  .portfolio-item {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .portfolio-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid rgba(18, 69, 89, 0.1);
+    transition: transform 0.5s ease;
+  }
+
+  .portfolio-content {
+    padding: 20px;
+  }
+
+  /* Animation d'apparition */
+  .portfolio-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  /* Contact Mobile */
+  .contact-section {
+    padding: 40px 20px;
   }
 
   .contact-info {
-    flex-direction:row; /* Aligner les éléments en colonne pour les petits écrans */
-    align-items: center; /* Centrer les éléments pour les petits écrans */
-  }
-
-  .contact-link {
-    width: 100%; /* Les liens prennent toute la largeur disponible sur les petits écrans */
-    margin-bottom: 10px; /* Ajouter un espace en dessous de chaque lien pour les petits écrans */
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
   .social-icons {
-    width: 40px; /* Réduire la taille des icônes pour les petits écrans */
-    justify-content: center; /* Centrer les icônes pour les petits écrans */
+    width: 40px;
+    height: 40px;
   }
 }
 
+/* Animations globales */
+.fade-in {
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+/* Correction de l'accolade manquante dans l'animation fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
