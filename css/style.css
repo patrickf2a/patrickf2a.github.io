@@ -493,13 +493,41 @@ nav a:hover, nav a:focus {
 
 /* CSS POUR LA 5ème SECTION */
 
-/* Portfolio Section Improvements */
+/* Portfolio Section Styles */
 .portfolio-section {
   background: linear-gradient(135deg, #124559 0%, #598392 100%);
   padding: 80px 40px;
   position: relative;
+  min-height: 100vh;
 }
 
+/* Section Title Styles */
+.section-title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Competence Content Styles */
+.competence-content {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.competence-text {
+  color: #ffffff;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 20px;
+}
+
+/* Portfolio Container Grid */
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -509,6 +537,7 @@ nav a:hover, nav a:focus {
   padding: 20px;
 }
 
+/* Portfolio Item Styles */
 .portfolio-item {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
@@ -518,54 +547,54 @@ nav a:hover, nav a:focus {
   display: flex;
   flex-direction: column;
   position: relative;
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
 }
 
+/* Portfolio Item Hover Effects */
 .portfolio-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.portfolio-item:hover .portfolio-image {
-  transform: scale(1.05);
+/* Portfolio Image Styles */
+.portfolio-image {
+  width: 100%;
+  height: 300px;
+  object-fit: countain;
+  background-color: #fff;
+  padding: 7px;
+  transition: transform 0.3s ease;
 }
 
-.portfolio-item img {
-  width: 100%; /* Les images prennent toute la largeur */
-  height: 320px; /* Hauteur fixe pour une apparence uniforme */
-  object-fit: cover; /* Assure que l'image couvre bien la zone dédiée */
-  object-position: center; /* Centre l'image dans son conteneur */
-  border: 4px solid #EFF6E0;;
-}
-
+/* Portfolio Content Styles */
 .portfolio-item h3 {
-  margin: 16px; /* Espace autour du titre */
-  font-size: 1.5em; /* Taille du titre */
+  margin: 16px;
+  font-size: 1.5em;
+  color: #124559;
+  font-weight: 600;
 }
 
 .portfolio-item p {
-  margin: 0 16px 16px; /* Espace autour du paragraphe */
-  font-size: 1em; /* Taille du texte */
+  margin: 0 16px 16px;
+  font-size: 1em;
+  color: #333;
+  line-height: 1.5;
+  flex-grow: 1;
 }
 
-
+/* Portfolio Link Styles */
 .portfolio-title-link {
-  text-decoration: none; /* Supprime le soulignement */
-  color: inherit; /* Utilise la couleur de texte héritée pour garder la cohérence */
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
 }
 
-.portfolio-title-link:hover, .portfolio-title-link:focus {
-  text-decoration: underline; /* Optionnel : ajoute un soulignement au survol pour indiquer qu'il s'agit d'un lien */
+.portfolio-title-link:hover h3 {
+  color: #598392;
 }
 
-.portfolio-image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-bottom: 2px solid rgba(18, 69, 89, 0.1);
-  transition: transform 0.5s ease;
-}
-
-
+/* Animation Keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -577,26 +606,60 @@ nav a:hover, nav a:focus {
   }
 }
 
-/* Décalage des animations pour chaque projet */
+/* Animation Delays for Portfolio Items */
 .portfolio-item:nth-child(1) { animation-delay: 0.2s; }
 .portfolio-item:nth-child(2) { animation-delay: 0.3s; }
 .portfolio-item:nth-child(3) { animation-delay: 0.4s; }
 .portfolio-item:nth-child(4) { animation-delay: 0.5s; }
 .portfolio-item:nth-child(5) { animation-delay: 0.6s; }
 .portfolio-item:nth-child(6) { animation-delay: 0.7s; }
+.portfolio-item:nth-child(7) { animation-delay: 0.8s; }
+.portfolio-item:nth-child(8) { animation-delay: 0.9s; }
 
-/* Effet de survol pour les liens */
-.portfolio-title-link:hover h3 {
-  color: #598392;
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .portfolio-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-image {
+    height: 220px;
+  }
 }
 
-/* Style pour l'image zoomée */
-.zoomed-image {
-  transition: transform 0.3s ease;
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .portfolio-item {
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .portfolio-item p {
+    color: #333;
+  }
 }
 
-.portfolio-item:hover .zoomed-image {
-  transform: scale(1.1);
+/* Focus States for Accessibility */
+.portfolio-title-link:focus {
+  outline: 3px solid #598392;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .portfolio-section {
+    background: none;
+    padding: 20px;
+  }
+
+  .portfolio-container {
+    display: block;
+  }
+
+  .portfolio-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    box-shadow: none;
+  }
 }
 
 
